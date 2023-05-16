@@ -4,6 +4,12 @@ LINKFLAGS=-lm -lpci
 PREFIX=/usr/local
 MANPATH=${PREFIX}/man
 INSTALLPATH:=/etc/vega.d
+OS:=$(shell uname)
+
+ifeq ("$(OS)", "FreeBSD")
+	INSTALLPATH:=/usr/local${INSTALLPATH}
+	LINKFLAGS+=-lsysinfo
+endif
 
 build: clean
 	mkdir bin
