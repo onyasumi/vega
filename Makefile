@@ -1,6 +1,6 @@
 C=gcc
 CFLAGS=-O3 -mtune=native
-LINKFLAGS=-lm -lpci -lsysinfo
+LINKFLAGS=-lm -lpci
 PREFIX=/usr/local
 MANPATH=${PREFIX}/man
 INSTALLPATH:=/etc/vega.d

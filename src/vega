@@ -115,8 +115,8 @@ lastentry() {
 
 model() {
     modelname=$(cat /sys/devices/virtual/dmi/id/product_name 2>/dev/null)
-    if [ -z $modelname ]; then
-        modelname="None"
+    if [ -z "$modelname" ]; then
+        modelname="Not Supported"
     fi
     printf "$*$modelname${reset}\n"
 }
@@ -165,6 +165,8 @@ uptime() {
 }
 
 packages() {
+    
+    # Inspired by neofetch by Dylan Araps
     has() { type "$1" 2>/dev/null 1>/dev/null ; }
     show() { printf "$("$@" | wc -l | awk '{print $1}') ($(echo $1 | sed 's/-.*//g'))"; }
 
